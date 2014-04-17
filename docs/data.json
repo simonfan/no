@@ -1,0 +1,75 @@
+{
+    "project": {
+        "name": "no",
+        "version": "0.0.0"
+    },
+    "files": {
+        "src/index.js": {
+            "name": "src/index.js",
+            "modules": {
+                "No": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "No": {
+            "name": "No",
+            "submodules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/index.js",
+            "line": 5,
+            "description": "AMD and CJS module."
+        }
+    },
+    "classes": {},
+    "classitems": [
+        {
+            "file": "src/index.js",
+            "line": 31,
+            "class": "",
+            "module": "No"
+        },
+        {
+            "file": "src/index.js",
+            "line": 41,
+            "description": "Coerces the value to a valid number.",
+            "itemtype": "method",
+            "name": "coerce",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "*"
+                }
+            ],
+            "class": "",
+            "module": "No"
+        },
+        {
+            "file": "src/index.js",
+            "line": 51,
+            "description": "Does the process of\n[1] checking the validity of a value\n[2] coercing value to a valid one if needed\n[3] rechecking validity of a coerced value and throwing necessary errors",
+            "itemtype": "method",
+            "name": "evaluate",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "*"
+                }
+            ],
+            "class": "",
+            "module": "No"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type",
+            "line": " src/index.js:31"
+        }
+    ]
+}

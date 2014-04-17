@@ -1,0 +1,16 @@
+{
+  "name": "no",
+  "main": "built/no.js",
+  "version": "0.0.0",
+  "description": "Number",
+  "dependencies": {
+    "subject": "~0.4.1"
+  },
+  "devDependencies": {
+    "requirejs": "*",
+    "requirejs-text": "*",
+    "underscore": "*",
+    "jquery": "*",
+    "qunit": "*"
+  }
+}
