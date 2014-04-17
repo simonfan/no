@@ -79,26 +79,34 @@ define(function (require, exports, module) {
 		add: function add(addition) {
 			addition = this.evaluate(addition);
 
-			return no(this.number + addition);
+			this.number = this.number + addition;
+
+			return this;
 		},
 
 		subtract: function subtract(subtraction) {
 
 			subtraction = this.evaluate(subtraction);
 
-			return no(this.number - subtraction);
+			this.number = this.number - subtraction;
+
+			return this;
 		},
 
 		multiply: function multiply(times) {
 			times = this.evaluate(times);
 
-			return no(this.number * times);
+			this.number = this.number * times;
+
+			return this;
 		},
 
 		divide: function divide(times) {
 			times = this.evaluate(times);
 
-			return no(this.number / times);
+			this.number = this.number / times;
+
+			return this;
 		},
 
 		value: function value() {
