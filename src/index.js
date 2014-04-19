@@ -58,21 +58,21 @@ define(function (require, exports, module) {
 		 * @param value *
 		 */
 		evaluate: function evaluate(value) {
+			return this.validate(value) ? value : this.coerce(value);
+		},
 
-			if (this.validate(value)) {
-				// if is valid, just return
-				return value;
-
-			} else {
-				// coerce and return or throw error if really invalid
-				var coerced = this.coerce(value);
-
-				// if value is still invalid, throw error
-				if (!this.validate(coerced)) {
-					throw new Error(value + ' is not valid and cannot be validly coerced.');
-				} else {
-					return coerced;
-				}
+		/**
+		 * Ensures the validity of the wrapped number.
+		 * Throws error if not valid
+		 *
+		 * @method ensureValidity
+		 * @param msg {String}
+		 *     Error message
+		 */
+		ensureValidity: function ensureValidity(msg) {
+			if (!this.validate(this.number)) {
+				msg = msg || 'is not a valid number.';
+				throw new Error('Number ' + this.number + ' - ' + msg);
 			}
 		},
 
@@ -107,6 +107,31 @@ define(function (require, exports, module) {
 			this.number = this.number / times;
 
 			return this;
+		},
+
+
+		isGt: function gt(comparison) {
+			comparison = this.evaluate(comparison);
+
+			return this.number > comparison;
+		},
+
+		isGte: function gte(comparison) {
+			comparison = this.evaluate(comparison);
+
+			return this.number >= comparison;
+		},
+
+		isLt: function lt(comparison) {
+			comparison = this.evaluate(comparison);
+
+			return this.number < comparison;
+		},
+
+		isLte: function lte(comparison) {
+			comparison = this.evaluate(comparison);
+
+			return this.number <= comparison;
 		},
 
 		value: function value() {

@@ -41,6 +41,8 @@
 
 			try {
 				twelve.add('qweq');
+				twelve.ensureValidity();
+
 			} catch (e) {
 				control = true;
 			}
@@ -54,6 +56,7 @@
 
 			try {
 				var notNumber = no(NaN);
+				notNumber.ensureValidity();
 			} catch (e) {
 				control = true;
 			}

@@ -64,6 +64,22 @@
             ],
             "class": "",
             "module": "No"
+        },
+        {
+            "file": "src/index.js",
+            "line": 64,
+            "description": "Ensures the validity of the wrapped number.\nThrows error if not valid",
+            "itemtype": "method",
+            "name": "ensureValidity",
+            "params": [
+                {
+                    "name": "msg",
+                    "description": "\n    Error message",
+                    "type": "String"
+                }
+            ],
+            "class": "",
+            "module": "No"
         }
     ],
     "warnings": [

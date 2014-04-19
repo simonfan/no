@@ -146,21 +146,21 @@ define(function (require, exports, module) {
 		 * @param value *
 		 */
 		evaluate: function evaluate(value) {
+			return this.validate(value) ? value : this.coerce(value);
+		},
 
-			if (this.validate(value)) {
-				// if is valid, just return
-				return value;
-
-			} else {
-				// coerce and return or throw error if really invalid
-				var coerced = this.coerce(value);
-
-				// if value is still invalid, throw error
-				if (!this.validate(coerced)) {
-					throw new Error(value + &#x27; is not valid and cannot be validly coerced.&#x27;);
-				} else {
-					return coerced;
-				}
+		/**
+		 * Ensures the validity of the wrapped number.
+		 * Throws error if not valid
+		 *
+		 * @method ensureValidity
+		 * @param msg {String}
+		 *     Error message
+		 */
+		ensureValidity: function ensureValidity(msg) {
+			if (this.validate(this.number)) {
+				msg = msg || &#x27;is not a valid number.&#x27;;
+				throw new Error(&#x27;Number &#x27; + this.number + &#x27; - &#x27; + msg);
 			}
 		},
 
@@ -195,6 +195,31 @@ define(function (require, exports, module) {
 			this.number = this.number / times;
 
 			return this;
+		},
+
+
+		isGt: function gt(comparison) {
+			comparison = this.evaluate(comparison);
+
+			return this.number &gt; comparison;
+		},
+
+		isGte: function gte(comparison) {
+			comparison = this.evaluate(comparison);
+
+			return this.number &gt;= comparison;
+		},
+
+		isLt: function lt(comparison) {
+			comparison = this.evaluate(comparison);
+
+			return this.number &lt; comparison;
+		},
+
+		isLte: function lte(comparison) {
+			comparison = this.evaluate(comparison);
+
+			return this.number &lt;= comparison;
 		},
 
 		value: function value() {
