@@ -133,7 +133,7 @@ define(function (require, exports, module) {
 		 * @param value *
 		 */
 		coerce: function coerceToNumber(value) {
-			return parseInt(value, 10);
+			return parseFloat(value, 10);
 		},
 
 		/**
@@ -158,7 +158,7 @@ define(function (require, exports, module) {
 		 *     Error message
 		 */
 		ensureValidity: function ensureValidity(msg) {
-			if (this.validate(this.number)) {
+			if (!this.validate(this.number)) {
 				msg = msg || &#x27;is not a valid number.&#x27;;
 				throw new Error(&#x27;Number &#x27; + this.number + &#x27; - &#x27; + msg);
 			}

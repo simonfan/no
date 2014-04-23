@@ -7208,7 +7208,7 @@ define('no',['require','exports','module','subject'],function (require, exports,
 		 * @param value *
 		 */
 		coerce: function coerceToNumber(value) {
-			return parseInt(value, 10);
+			return parseFloat(value, 10);
 		},
 
 		/**
@@ -7233,7 +7233,7 @@ define('no',['require','exports','module','subject'],function (require, exports,
 		 *     Error message
 		 */
 		ensureValidity: function ensureValidity(msg) {
-			if (this.validate(this.number)) {
+			if (!this.validate(this.number)) {
 				msg = msg || 'is not a valid number.';
 				throw new Error('Number ' + this.number + ' - ' + msg);
 			}

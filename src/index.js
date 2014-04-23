@@ -45,7 +45,7 @@ define(function (require, exports, module) {
 		 * @param value *
 		 */
 		coerce: function coerceToNumber(value) {
-			return parseInt(value, 10);
+			return parseFloat(value, 10);
 		},
 
 		/**
